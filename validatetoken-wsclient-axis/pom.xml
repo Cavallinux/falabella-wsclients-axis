@@ -1,0 +1,40 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.falabella</groupId>
+		<artifactId>falabella-wsclients-axis</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+	<artifactId>validatetoken-wsclient-axis</artifactId>
+	<name>Validate Token, WSClient</name>
+	<description>Fuentes, lado cliente para Axis, del servicio web de validacion de token</description>
+
+	<profiles>
+		<profile>
+			<id>validatetoken-wsclient</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>axistools-maven-plugin</artifactId>
+						<version>1.4</version>
+						<configuration>
+							<wsdlFiles>
+								<wsdlFiles>OSB_CMR_CL_ValidarToken.wsdl</wsdlFiles>
+							</wsdlFiles>
+							<outputDirectory>${basedir}/src/main/java</outputDirectory>
+						</configuration>
+						<executions>
+							<execution>
+								<goals>
+									<goal>wsdl2java</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+</project>
